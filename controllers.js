@@ -15,6 +15,7 @@ incGrav.onclick = () => {
 
 decGrav.onclick = () => {
   gravity--;
+  if(gravity < 0){gravity++}
   gravValue.textContent = gravity;
 }
 
@@ -36,6 +37,7 @@ let SpS = 2
 spsValue.textContent = SpS;
 
 function changeSpSInterval(SpS){
+  
   spsValue.textContent = SpS;
   clearInterval(window.run)
   window.run = setInterval(draw, 1000/SpS)
@@ -48,6 +50,7 @@ incSpS.onclick = () => {
 
 decSpS.onclick = () => {
   SpS--;
+  if(SpS == 0){ SpS = 1 }
   changeSpSInterval(SpS)
 }
 
