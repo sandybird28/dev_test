@@ -11,6 +11,7 @@ function drawCircle(color,coordX, coordY=-50){
   circle.interactive = true; 
   circle.buttonMode = true;
   circle.on('click',deleteShape);
+  circle.on('tap',deleteShape);
   return circle
 }
 
@@ -25,6 +26,7 @@ function drawEllipse(color,coordX, coordY=-50){
   ellipse.interactive = true; 
   ellipse.buttonMode = true; 
   ellipse.on('click',deleteShape); 
+  ellipse.on('tap',deleteShape);
   return ellipse
 }
 
@@ -42,6 +44,7 @@ function drawTriangle(color,coordX, coordY=-50 ){
   triangle.interactive = true;
   triangle.buttonMode = true;
   triangle.on('click',deleteShape);
+  triangle.on('tap',deleteShape);
   return triangle
 }
 
@@ -54,6 +57,7 @@ function drawStar(color,coordX, coordY=-50){
   star.interactive = true; 
   star.buttonMode = true; 
   star.on('click',deleteShape); 
+  star.on('tap',deleteShape);
   return star
 }
 
@@ -66,6 +70,7 @@ function drawRect(color,coordX, coordY=-100){
   rect.interactive = true; 
   rect.buttonMode = true; 
   rect.on('click',deleteShape); 
+  rect.on('tap',deleteShape);
   return rect
 }
 
@@ -78,6 +83,7 @@ function draw5sides(color,coordX, coordY=-100){
   p.interactive = true; 
   p.buttonMode = true; 
   p.on('click',deleteShape); 
+  p.on('tap',deleteShape);
   return p
 }
 
@@ -90,6 +96,7 @@ function draw6sides(color,coordX, coordY=-100){
   p.interactive = true; 
   p.buttonMode = true; 
   p.on('click',deleteShape); 
+  p.on('tap',deleteShape);
   return p
 }
 
