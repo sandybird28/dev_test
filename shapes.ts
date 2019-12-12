@@ -1,8 +1,8 @@
 import * as PIXI from 'pixi.js';
-import { deleteShape } from './index'
 
-function drawCircle(color,coordX, coordY=-50){
-  const radius = 50;
+
+function drawCircle(color: number, coordX: number, coordY: number =-50):  PIXI.Graphics {
+  const radius: number = 50;
   const circle = new PIXI.Graphics(); 
   circle.lineStyle(0);
   circle.beginFill(color, 1); 
@@ -10,14 +10,12 @@ function drawCircle(color,coordX, coordY=-50){
   circle.endFill(); 
   circle.interactive = true; 
   circle.buttonMode = true;
-  circle.on('click',deleteShape);
-  circle.on('tap',deleteShape);
   return circle
 }
 
-function drawEllipse(color,coordX, coordY=-50){
-  const width = 70;
-  const height = 50; 
+function drawEllipse(color: number, coordX: number, coordY: number =-50):  PIXI.Graphics{
+  const width: number = 70;
+  const height: number = 50; 
   const ellipse = new PIXI.Graphics(); 
   ellipse.lineStyle(0);
   ellipse.beginFill(color, 1);
@@ -25,12 +23,10 @@ function drawEllipse(color,coordX, coordY=-50){
   ellipse.endFill();
   ellipse.interactive = true; 
   ellipse.buttonMode = true; 
-  ellipse.on('click',deleteShape); 
-  ellipse.on('tap',deleteShape);
   return ellipse
 }
 
-function drawTriangle(color,coordX, coordY=-50 ){
+function drawTriangle(color: number, coordX: number, coordY: number =-50):  PIXI.Graphics{
   const triangle = new PIXI.Graphics();
   triangle.x = coordX-50;
   triangle.y = coordY-50;
@@ -38,17 +34,15 @@ function drawTriangle(color,coordX, coordY=-50 ){
   triangle.lineStyle(0);
   triangle.moveTo(100, 0);
   triangle.lineTo(50, 100); 
-  triangle.lineTo(0, 0);
+  triangle.lineTo(0, 0);2
   triangle.lineTo(50, 0);
   triangle.endFill();
   triangle.interactive = true;
   triangle.buttonMode = true;
-  triangle.on('click',deleteShape);
-  triangle.on('tap',deleteShape);
   return triangle
 }
 
-function drawStar(color,coordX, coordY=-50){
+function drawStar(color: number, coordX: number, coordY: number =-50):  PIXI.Graphics{
   const star = new PIXI.Graphics(); 
   star.lineStyle(0);
   star.beginFill(color, 1);
@@ -56,12 +50,10 @@ function drawStar(color,coordX, coordY=-50){
   star.endFill();
   star.interactive = true; 
   star.buttonMode = true; 
-  star.on('click',deleteShape); 
-  star.on('tap',deleteShape);
   return star
 }
 
-function drawRect(color,coordX, coordY=-100){
+function drawRect(color: number, coordX: number, coordY: number =-50):  PIXI.Graphics{
   const rect = new PIXI.Graphics(); 
   rect.lineStyle(0);
   rect.beginFill(color, 1);
@@ -69,12 +61,10 @@ function drawRect(color,coordX, coordY=-100){
   rect.endFill();
   rect.interactive = true; 
   rect.buttonMode = true; 
-  rect.on('click',deleteShape); 
-  rect.on('tap',deleteShape);
   return rect
 }
 
-function draw5sides(color,coordX, coordY=-100){
+function draw5sides(color: number, coordX: number, coordY: number =-50):  PIXI.Graphics{
   const p = new PIXI.Graphics(); 
   p.lineStyle(0);
   p.beginFill(color, 1);
@@ -82,12 +72,10 @@ function draw5sides(color,coordX, coordY=-100){
   p.endFill();
   p.interactive = true; 
   p.buttonMode = true; 
-  p.on('click',deleteShape); 
-  p.on('tap',deleteShape);
   return p
 }
 
-function draw6sides(color,coordX, coordY=-100){
+function draw6sides(color: number, coordX: number, coordY: number =-50):  PIXI.Graphics{
   const p = new PIXI.Graphics(); 
   p.lineStyle(0);
   p.beginFill(color, 1);
@@ -95,11 +83,9 @@ function draw6sides(color,coordX, coordY=-100){
   p.endFill();
   p.interactive = true; 
   p.buttonMode = true; 
-  p.on('click',deleteShape); 
-  p.on('tap',deleteShape);
   return p
 }
 
-const shapes =[drawCircle, drawTriangle, drawEllipse, drawStar, drawRect, draw5sides, draw6sides]
+const shapes = [drawCircle, drawTriangle, drawEllipse, drawStar, drawRect, draw5sides, draw6sides]
 
 export default shapes;
