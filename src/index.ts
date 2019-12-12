@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js';
-import shapes from './shapes'
+import shapes from './shapes';
+
 
 interface Model {
   width: number;
