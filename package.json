@@ -6,8 +6,8 @@
   "path": "https://sandybird28.github.io/dev_test/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open",
-    "webpack": "webpack",
+    "start": "parcel ./index.html",
+    "webpack": "webpack -w",
     "build": "rm -rf dist && parcel build ./index.html  --public-url /dev_test/",
     "deploy": "gh-pages -d dist"
   },
@@ -26,6 +26,7 @@
     "css-loader": "^3.3.1",
     "gh-pages": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
+    "parcel": "^1.12.4",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.3",
     "webpack": "^4.41.2",
