@@ -1,40 +1,40 @@
-import model from './model'
-import view from './view'
 
+import Model from './model'
+import View from './view'
 
 
 
 class Controller {
+  model: Model;
+  view: View;
+  constructor(model: Model, view: View){
+    this.model = model;
+    this.view = view;
+  }
   init(){
     //handle all listeners
-    view.incSpS.onclick = this.incSpS;
-    view.decSpS.onclick = this.decSpS;
-    view.incGrav.onclick = this.incGrav;
-    view.decGrav.onclick = this.decGrav;
-    model.app.view.onclick = function(e){
-      model.wasDeleted ? model.wasDeleted = false : model.draw(Controller.deleteShape, e.offsetX, e.offsetY);
-    }
-    model.app.view.ontouchend = (e) => {e.preventDefault();model.wasDeleted ? model.wasDeleted = false : model.draw(Controller.deleteShape, e.changedTouches[0].clientX, e.changedTouches[0].clientY-50)}
+    this.view.incSpS.onclick = this.incSpS.bind(this);
+    this.view.decSpS.onclick = this.decSpS.bind(this);
+    this.view.incGrav.onclick = this.incGrav.bind(this);
+    this.view.decGrav.onclick = this.decGrav.bind(this);
+    this.model.app.view.onclick = (e)=>{
+      this.model.wasDeleted ? this.model.wasDeleted = false : this.model.draw( e.offsetX, e.offsetY);
+    };
+    this.model.app.view.ontouchend = (e) => {e.preventDefault();this.model.wasDeleted ? this.model.wasDeleted = false : this.model.draw(e.changedTouches[0].clientX, e.changedTouches[0].clientY-50)}
   };
 
-  static deleteShape(){
-    model.app.stage.removeChild(this)
-    model.wasDeleted = true;
-  };
 
   incSpS(){
-    model.shapesPerSecond += 1
+    this.model.changeShapesPerSecond(true)
   };
   decSpS(){
-    model.shapesPerSecond -= 1  
-    if(model.shapesPerSecond == 0){ model.shapesPerSecond = 1 }
+    this.model.changeShapesPerSecond(false)
   };
   incGrav(){
-    model.gravity++;
+    this.model.changeGravity(true);
   };
   decGrav(){
-    model.gravity--;
-    if(model.gravity < 0){model.gravity++}
+    this.model.changeGravity(false);
   };
 }
 
