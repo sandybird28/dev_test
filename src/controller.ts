@@ -18,14 +18,16 @@ class Controller {
     this.view.decSpS.onclick = this.decSpS.bind(this);
     this.view.incGrav.onclick = this.incGrav.bind(this);
     this.view.decGrav.onclick = this.decGrav.bind(this);
-    this.model.app.view.onclick = (e)=>{
-      this.model.wasDeleted ? this.model.wasDeleted = false : this.model.draw( e.offsetX, e.offsetY);
+    this.view.app.view.onclick = (e)=>{
+      this.model.wasDeleted ? this.model.wasDeleted = false : this.view.draw(this.model.getColor(), e.offsetX, e.offsetY);
     };
-    this.model.app.stage.on("pointerdown", (e) => {
+    this.view.app.stage.on("pointerdown", (e) => {
       e.target.destroy();
       this.model.wasDeleted = true 
   })
-    this.model.app.view.ontouchend = (e) => {e.preventDefault();this.model.wasDeleted ? this.model.wasDeleted = false : this.model.draw(e.changedTouches[0].clientX, e.changedTouches[0].clientY-50)}
+    this.view.app.view.ontouchend = (e) => {e.preventDefault();this.model.wasDeleted ? this.model.wasDeleted = false : this.view.draw(e.changedTouches[0].clientX, e.changedTouches[0].clientY-50)}
+    this.view.app.ticker.add(() => this.view.update(this.model));
+
   };
 
 

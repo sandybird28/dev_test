@@ -10,31 +10,44 @@ class View  {
   decSpS: HTMLElement = document.getElementById("decSpS");
   incGrav: HTMLElement = document.getElementById("incGrav");
   decGrav: HTMLElement = document.getElementById("decGrav");
-  model: Model;
-  constructor(model: Model){
-    this.model = model
+  app: PIXI.Application;
+  width: number;
+  height: number;
+  shapes: any[];
+  constructor(app: PIXI.Application,shapes: any[] ){
+    this.width = window.innerWidth < 500 ? window.innerWidth : window.innerWidth - 200;
+    this.height  = window.innerHeight - 200; 
+    this.app = app;
+    this.shapes = shapes;
+    this.app.stage.interactive = true;
+    this.app.view.width = this.width;
+    this.app.view.height = this.height;
+  }
+
+  draw(color:number, coordX = 50 + Math.floor(Math.random() * (this.width - 100)), coordY?){
+    const shape = new this.shapes[Math.floor(Math.random() * this.shapes.length)](color, coordX, coordY).draw();
+    this.app.stage.addChild(shape);
   };
 
   start():void {
-    this.wrapper.appendChild(this.model.app.view)
-    this.model.app.ticker.add(this.update.bind(this));
+    this.wrapper.appendChild(this.app.view)
   };
 
-  update():void {
-    this.model.counter += 1;
-    if(this.model.counter == ~~( 50/this.model.shapesPerSecond) || Number(this.spsValue.innerText) != this.model.shapesPerSecond){
-      this.model.draw()
-      this.model.counter = 0
+  update(data:Model):void {
+    data.counter += 1;
+    if(data.counter == ~~( 50/data.shapesPerSecond) || Number(this.spsValue.innerText) != data.shapesPerSecond){
+      this.draw(data.getColor())
+      data.counter = 0
     }
-    let children = this.model.app.stage.children
+    let children = this.app.stage.children
     for (let i = 0; i < children.length - 1; i++) {
-      children[i].position.y += this.model.gravity;
-      if(children[i].position.y > (this.model.height + 200)){
-        this.model.app.stage.removeChild(children[i])
+      children[i].position.y += data.gravity;
+      if(children[i].position.y > (this.height + 200)){
+        this.app.stage.removeChild(children[i])
       }
       this.numbreOfShapes.textContent = children.length.toString();
-      this.spsValue.textContent = this.model.shapesPerSecond.toString();
-      this.gravValue.textContent = this.model.gravity.toString();
+      this.spsValue.textContent = data.shapesPerSecond.toString();
+      this.gravValue.textContent = data.gravity.toString();
     } 
   }
 }

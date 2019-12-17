@@ -7,8 +7,8 @@ import shapes from './shapes'
 const app = new PIXI.Application();
 
 
-const model = new Model(app ,shapes);
-const view = new View(model);
+const model = new Model();
+const view = new View(app ,shapes);
 const controller = new Controller(model, view);
 
 view.start();
