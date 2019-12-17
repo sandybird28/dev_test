@@ -11,7 +11,4 @@ const model = new Model(app ,shapes);
 const view = new View(model);
 const controller = new Controller(model, view);
 
-controller.init()
-
 view.start();
-

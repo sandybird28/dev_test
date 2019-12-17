@@ -14,8 +14,12 @@ class Shape{
     this.shape.lineStyle(0);
     this.shape.interactive = true; 
     this.shape.buttonMode = true;
-    this.shape.on('click',this.destroy.bind(this));
-    this.shape.on('tap', this.destroy.bind(this));
+    // this.shape.on('click',(e)=>{
+    //   console.log(e)
+    //   // e.stopPropagation();
+    //   this.destroy(); 
+    // });
+    // this.shape.on('tap', this.destroy.bind(this));
     this.shape.beginFill(color, 1); 
   }
 

@@ -14,7 +14,7 @@ class Model{
   constructor(app: PIXI.Application,shapes: any[] ){
     this.app = app;
     this.shapes = shapes;
-
+    this.app.stage.interactive = true;
   }
 
   draw(coordX = 50 + Math.floor(Math.random() * (this.width - 100)), coordY?){

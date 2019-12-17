@@ -10,6 +10,7 @@ class Controller {
   constructor(model: Model, view: View){
     this.model = model;
     this.view = view;
+    this.init()
   }
   init(){
     //handle all listeners
@@ -20,6 +21,10 @@ class Controller {
     this.model.app.view.onclick = (e)=>{
       this.model.wasDeleted ? this.model.wasDeleted = false : this.model.draw( e.offsetX, e.offsetY);
     };
+    this.model.app.stage.on("pointerdown", (e) => {
+      e.target.destroy();
+      this.model.wasDeleted = true 
+  })
     this.model.app.view.ontouchend = (e) => {e.preventDefault();this.model.wasDeleted ? this.model.wasDeleted = false : this.model.draw(e.changedTouches[0].clientX, e.changedTouches[0].clientY-50)}
   };
 
