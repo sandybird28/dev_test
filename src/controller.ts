@@ -1,13 +1,11 @@
+import IController from './interfaces/Icontroller'
+import IModel from './interfaces/Imodel'
+import IView from './interfaces/Iview'
 
-import Model from './model'
-import View from './view'
-
-
-
-class Controller {
-  model: Model;
-  view: View;
-  constructor(model: Model, view: View){
+class Controller implements IController {
+  model: IModel;
+  view: IView;
+  constructor(model: IModel, view: IView){
     this.model = model;
     this.view = view;
     this.init()

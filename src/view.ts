@@ -1,7 +1,6 @@
-import Model from "./model";
+import IView from './interfaces/Iview'
 
-
-class View  {
+class View implements IView {
   wrapper: HTMLElement = document.querySelector('.wrapper');
   gravValue: HTMLElement = document.getElementById("gravValue");
   spsValue: HTMLElement = document.getElementById("SpSValue");
@@ -15,6 +14,7 @@ class View  {
   height: number;
   shapes: any[];
   constructor(app: PIXI.Application,shapes: any[] ){
+    
     this.width = window.innerWidth < 500 ? window.innerWidth : window.innerWidth - 200;
     this.height  = window.innerHeight - 200; 
     this.app = app;
@@ -33,7 +33,7 @@ class View  {
     this.wrapper.appendChild(this.app.view)
   };
 
-  update(data:Model):void {
+  update(data):void {
     data.counter += 1;
     if(data.counter == ~~( 50/data.shapesPerSecond) || Number(this.spsValue.innerText) != data.shapesPerSecond){
       this.draw(data.getColor())

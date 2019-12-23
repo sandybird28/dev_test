@@ -1,11 +1,10 @@
 import * as PIXI from 'pixi.js';
+import IShape from './interfaces/Ishape'
 
-
-class Shape{
+class Shape implements IShape{
   color: number;
   coordX: number;
   coordY: number;
-  stage:  PIXI.Container
   shape = new PIXI.Graphics();
   constructor(color: number, coordX: number, coordY: number =-50){
     this.color = color;
@@ -14,12 +13,6 @@ class Shape{
     this.shape.lineStyle(0);
     this.shape.interactive = true; 
     this.shape.buttonMode = true;
-    // this.shape.on('click',(e)=>{
-    //   console.log(e)
-    //   // e.stopPropagation();
-    //   this.destroy(); 
-    // });
-    // this.shape.on('tap', this.destroy.bind(this));
     this.shape.beginFill(color, 1); 
   }
 
