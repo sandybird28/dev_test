@@ -1,4 +1,4 @@
-import IModel from './interfaces/Imodel'
+import IModel from '../interfaces/Imodel'
 
 class Model implements  IModel{
   shapesPerSecond = 1;
@@ -15,7 +15,9 @@ class Model implements  IModel{
   }
   changeShapesPerSecond(value:boolean):void{
     this.shapesPerSecond = value 
-      ? this.shapesPerSecond += 1
+      ? this.shapesPerSecond == 50
+        ? this.shapesPerSecond 
+        : this.shapesPerSecond += 1
       : this.shapesPerSecond == 1 
         ? this.shapesPerSecond
         : this.shapesPerSecond -= 1

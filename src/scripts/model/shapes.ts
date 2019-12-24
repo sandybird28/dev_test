@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import IShape from './interfaces/Ishape'
+import IShape from '../interfaces/Ishape'
 
 class Shape implements IShape{
   color: number;

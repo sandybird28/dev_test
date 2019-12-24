@@ -1,8 +1,8 @@
 import * as PIXI from 'pixi.js';
-import Model from './model'
-import View from './view'
-import Controller from './controller'
-import shapes from './shapes'
+import Model from './model/model'
+import View from './view/view'
+import Controller from './controller/controller'
+import shapes from './model/shapes'
 
 const app = new PIXI.Application();
 

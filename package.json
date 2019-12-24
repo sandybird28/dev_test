@@ -6,7 +6,7 @@
   "path": "https://sandybird28.github.io/dev_test/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel ./index.html",
+    "start": "parcel ./src/index.html",
     "webpack": "webpack -w",
     "build": "rm -rf dist && parcel build ./index.html  --public-url /dev_test/",
     "deploy": "gh-pages -d dist"

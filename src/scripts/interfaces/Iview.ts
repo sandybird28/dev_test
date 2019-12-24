@@ -5,7 +5,7 @@ export default interface IView {
   wrapper: HTMLElement;
   gravValue: HTMLElement;
   spsValue: HTMLElement;
-  numbreOfShapes: HTMLElement;
+  numberOfShapes: HTMLElement;
   incSpS: HTMLElement;
   decSpS: HTMLElement;
   incGrav: HTMLElement;

@@ -1,6 +1,6 @@
-import IController from './interfaces/Icontroller'
-import IModel from './interfaces/Imodel'
-import IView from './interfaces/Iview'
+import IController from '../interfaces/Icontroller'
+import IModel from '../interfaces/Imodel'
+import IView from '../interfaces/Iview'
 
 class Controller implements IController {
   model: IModel;
@@ -22,7 +22,7 @@ class Controller implements IController {
     this.view.app.stage.on("pointerdown", (e) => {
       e.target.destroy();
       this.model.wasDeleted = true 
-  })
+    })
     this.view.app.view.ontouchend = (e) => {e.preventDefault();this.model.wasDeleted ? this.model.wasDeleted = false : this.view.draw(e.changedTouches[0].clientX, e.changedTouches[0].clientY-50)}
     this.view.app.ticker.add(() => this.view.update(this.model));
 

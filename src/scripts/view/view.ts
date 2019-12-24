@@ -1,10 +1,10 @@
-import IView from './interfaces/Iview'
+import IView from '../interfaces/Iview'
 
 class View implements IView {
   wrapper: HTMLElement = document.querySelector('.wrapper');
   gravValue: HTMLElement = document.getElementById("gravValue");
   spsValue: HTMLElement = document.getElementById("SpSValue");
-  numbreOfShapes: HTMLElement = document.getElementById("numbreOfShapes");
+  numberOfShapes: HTMLElement = document.getElementById("numberOfShapes");
   incSpS: HTMLElement = document.getElementById("incSpS");
   decSpS: HTMLElement = document.getElementById("decSpS");
   incGrav: HTMLElement = document.getElementById("incGrav");
@@ -45,7 +45,7 @@ class View implements IView {
       if(children[i].position.y > (this.height + 200)){
         this.app.stage.removeChild(children[i])
       }
-      this.numbreOfShapes.textContent = children.length.toString();
+      this.numberOfShapes.textContent = children.length.toString();
       this.spsValue.textContent = data.shapesPerSecond.toString();
       this.gravValue.textContent = data.gravity.toString();
     } 
